@@ -46,7 +46,8 @@ class LoginScreenState extends State<LoginScreen> {
 
     if (success) {
       // Naviger til profile screen om oki doki
-      // Navigator.pushReplacementNamed(context, '/profile');
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, '/auth');
     } else {
       // Roast brukeren om feil
       ScaffoldMessenger.of(context).showSnackBar(
@@ -75,9 +76,16 @@ class LoginScreenState extends State<LoginScreen> {
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(labelText: 'Email'),
+                decoration: const InputDecoration(
+                  labelText: 'Epost',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
+                  ),
+                ),
                 validator: (value) => (value == null || value.isEmpty)
-                    ? 'Please enter your email'
+                    ? 'Vennligst oppgi epost'
                     : null,
               ),
               const SizedBox(height: 16.0),
@@ -85,17 +93,32 @@ class LoginScreenState extends State<LoginScreen> {
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: const InputDecoration(labelText: 'Password'),
+                decoration: const InputDecoration(
+                  labelText: 'Passord',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.0),
+                    ),
+                  ),
+                ),
                 validator: (value) => (value == null || value.isEmpty)
-                    ? 'Please enter your password'
+                    ? 'Vennligst oppgi passord'
                     : null,
               ),
               const SizedBox(height: 32.0),
               _isLoading
                   ? const CircularProgressIndicator()
                   : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.onPrimary,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          minimumSize: Size(200, 50)),
                       onPressed: _login,
-                      child: const Text('Login'),
+                      child: const Text('Logg inn'),
                     ),
             ],
           ),

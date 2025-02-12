@@ -3,9 +3,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:learniken_flutter/src/login/login_screen.dart';
-
-import 'sample_feature/sample_item_details_view.dart';
-import 'sample_feature/sample_item_list_view.dart';
+import 'package:learniken_flutter/src/authenticated/authenticated_screen.dart';
+import 'package:learniken_flutter/src/profile/profile_screen.dart';
+import 'package:learniken_flutter/src/activity/activity_screen.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
@@ -66,12 +66,19 @@ class MyApp extends StatelessWidget {
               centerTitle: true,
             ),
             navigationBarTheme: NavigationBarThemeData(
-                backgroundColor: Color.fromRGBO(115, 136, 73, 1.0)),
+              backgroundColor: Color.fromRGBO(240, 245, 223, 1.0),
+            ),
+            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              backgroundColor: Color.fromRGBO(240, 245, 223, 1.0),
+              selectedItemColor: Colors.black,
+            ),
             colorScheme: ColorScheme(
               primary: Color(0xFF283904),
               secondary: Color.fromRGBO(115, 136, 73, 1.0),
+              tertiary: Color.fromRGBO(240, 245, 223, 1.0),
               onPrimary: Colors.white,
               onSecondary: Color(0xFF283904),
+              onTertiary: Colors.black,
               brightness: Brightness.light,
               error: const Color.fromRGBO(186, 26, 26, 1.0),
               onError: Colors.white,
@@ -95,8 +102,12 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
-                  case SampleItemDetailsView.routeName:
-                    return const SampleItemDetailsView();
+                  case AuthenticatedScreen.routeName:
+                    return const AuthenticatedScreen();
+                  case ProfileScreen.routeName:
+                    return const ProfileScreen();
+                  case ActivityScreen.routeName:
+                    return const ActivityScreen();
                   case LoginScreen.routeName:
                   default:
                     return const LoginScreen();
