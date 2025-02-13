@@ -12,7 +12,8 @@ class LoginScreen extends StatefulWidget {
 
 class LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  String ulrikenLogo = 'assets/images/AlternateUlrikenLogo.svg';
+  String ulrikenLogo =
+      'assets/images/ulriken/Ulriken_C_logo_dark_green_rgb.svg';
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();

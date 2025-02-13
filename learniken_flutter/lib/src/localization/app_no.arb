@@ -1,0 +1,9 @@
+{
+    "appTitle": "learniken_flutter",
+    "@appTitle": {
+      "description": "Tittelen for appen"
+    },
+    "profile": "Profil",
+    "activity": "Aktivitet"
+  }
+  

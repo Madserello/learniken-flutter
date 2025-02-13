@@ -32,6 +32,10 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/
+    - assets/images/funiken/
+    - assets/images/learniken/
+    - assets/images/ulriken/
+
 
   # fonts:
   # - family: Montserrat
