@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learniken_flutter/src/profile/profile_screen.dart';
-import 'package:learniken_flutter/src/activity/activity_screen.dart';
+import 'package:learniken_flutter/src/learniken/learniken_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AuthenticatedScreen extends StatefulWidget {
@@ -18,28 +18,32 @@ class AuthenticatedScreenState extends State<AuthenticatedScreen> {
   // Liste av skjermene i nav bar
   final List<Widget> _screens = const [
     ProfileScreen(),
-    ActivityScreen(),
+    LearnikenScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_currentIndex == 0
-            ? AppLocalizations.of(context)!.profile
-            : AppLocalizations.of(context)!.activity),
+        title: Text(
+          _currentIndex == 0
+              ? AppLocalizations.of(context)!.profile
+              : AppLocalizations.of(context)!.learniken,
+        ),
       ),
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
             label: 'Profil',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.directions_bike),
-            label: 'Aktivitet',
+            icon: Icon(Icons.school_outlined),
+            activeIcon: Icon(Icons.school),
+            label: 'Learniken',
           ),
         ],
         onTap: (int index) {

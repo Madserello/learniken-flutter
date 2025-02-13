@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:learniken_flutter/src/login/login_screen.dart';
 import 'package:learniken_flutter/src/authenticated/authenticated_screen.dart';
 import 'package:learniken_flutter/src/profile/profile_screen.dart';
-import 'package:learniken_flutter/src/activity/activity_screen.dart';
+import 'package:learniken_flutter/src/learniken/learniken_screen.dart';
 import 'settings/settings_controller.dart';
 import 'settings/settings_view.dart';
 
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en', ''), // English, no country code
+            // Locale('en', ''), // English, no country code
             Locale('no', '')
           ],
 
@@ -107,8 +107,8 @@ class MyApp extends StatelessWidget {
                     return const AuthenticatedScreen();
                   case ProfileScreen.routeName:
                     return const ProfileScreen();
-                  case ActivityScreen.routeName:
-                    return const ActivityScreen();
+                  case LearnikenScreen.routeName:
+                    return const LearnikenScreen();
                   case LoginScreen.routeName:
                   default:
                     return const LoginScreen();
